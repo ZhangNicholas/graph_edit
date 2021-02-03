@@ -8,12 +8,16 @@ void Model::new_drawing()
 
 void Model::open_drawing(const std::string& file_path)
 {
+	std::string m_file_path = file_path;
+	m_file_path = "mock_file";
 	new_drawing();
 	// open drawing from file
 }
 
 void Model::save_drawing(const std::string& file_path)
 {
+	std::string m_file_path = file_path;
+	m_file_path = "mock_file";
 	// save_drawing to file
 }
 
