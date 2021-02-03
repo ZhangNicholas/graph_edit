@@ -33,4 +33,6 @@ class IModel : public IObservable
 
 	virtual void get_model() const = 0;
 
+	virtual size_t get_number_of_primitives() const = 0;
+
  };

@@ -11,12 +11,12 @@ Controller::Controller(std::shared_ptr<IModel> model, std::shared_ptr<IView> vie
 	if (model)
 		_model = model;
 	else
-		throw std::runtime_error("Model mustn't nullptr");
+		throw std::runtime_error("Expected model missing");
 
 	if (view)
 		_view = view;
 	else
-		throw std::runtime_error("View mustn't nullptr");
+		throw std::runtime_error("Expected view is missing");
 
 	_model->subscribe(_view);
 	_model->notify();
@@ -62,6 +62,6 @@ void Controller::delete_last_primitive()
 
 void Controller::get_model()
 {
-	_model->delete_last_primitive();
+	_model->get_model();
 	_model->notify();
 }

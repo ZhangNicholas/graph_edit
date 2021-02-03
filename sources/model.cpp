@@ -44,6 +44,7 @@ void Model::delete_last_primitive()
 	{
 		drawing.pop_back();
 	}
+	else std::cout << "The model is empty\n";
 	// notify();
 }
 
@@ -57,4 +58,9 @@ void Model::get_model() const
 		}
 	}
 	else std::cout << "The model is empty\n";
+}
+
+size_t Model::get_number_of_primitives() const
+{
+	return drawing.size();
 }

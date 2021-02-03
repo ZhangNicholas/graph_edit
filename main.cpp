@@ -8,14 +8,14 @@
 *This project is an implementation of the graphic editor functionality using MVC design pattern.
 */
 
-
 #include <memory>
-#include <i_model.h>
-#include <model.h>
+#include "i_model.h"
+#include "model.h"
 #include "i_controller.h"
 #include "controller.h"
 #include "i_view.h"
 #include "view.h"
+#include <iostream>
 
 int main()
 {

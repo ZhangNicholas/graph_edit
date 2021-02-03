@@ -21,6 +21,8 @@ class Model : public IModel
 
 	void get_model() const override;
 
+	size_t get_number_of_primitives() const override;
+
 	private:
 		std::list<std::unique_ptr<IGraphicPrimitive>> drawing;
 		std::unique_ptr<Factory> point_factory{nullptr};

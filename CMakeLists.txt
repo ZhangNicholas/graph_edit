@@ -1,40 +1,57 @@
 cmake_minimum_required(VERSION 3.5)
 
 if($ENV{TRAVIS_BUILD_NUMBER})
-	project(matrix VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+	project(graph_edit VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 else()
-	project(matrix VERSION 0.0.1)
+	project(graph_edit VERSION 0.0.1)
 endif()
 
 set(CMAKE_CXX_STANDARD 14)
 find_package(GTest REQUIRED)
 
-set(SOURCES main.cpp
+set(SOURCES
+	main.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/arc.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/controller.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/factory.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/graphic_primitive.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/model.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/point.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/view.cpp
 )
 
 # Main target
-add_executable(matrix ${SOURCES})
+add_executable(graph_edit ${SOURCES})
 
 add_executable(
 	tests
-	test/tests.cpp
+	test/graph_edit_test.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/arc.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/controller.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/factory.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/graphic_primitive.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/model.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/point.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/view.cpp
 )
 
-set_target_properties(matrix tests PROPERTIES
+set_target_properties(graph_edit tests PROPERTIES
 	CXX_STANDARD 14
 	CXX_STANDARD_REQUIRED ON
 )
 
 target_include_directories(
-	matrix
-	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/includes"
+	graph_edit
+	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/interfaces"
+	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/headers"
 )
 
 target_include_directories(
 	tests
 	PRIVATE ${GTEST_INCLUDE_DIRS}
-	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src"
-	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/includes"
+	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/sources"
+	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/interfaces"
+	PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/headers"
 )
 
 target_link_libraries(
@@ -50,7 +67,7 @@ if (MSVC)
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
 
 	target_compile_options(
-		matrix PRIVATE
+		graph_edit PRIVATE
 		/WX
 	)
 	target_compile_options(
@@ -59,7 +76,7 @@ if (MSVC)
 	)
 else ()
 	target_compile_options(
-		matrix PRIVATE
+		graph_edit PRIVATE
 		-Wall -Wextra -pedantic -Werror
 	)
 	target_compile_options(
@@ -68,7 +85,7 @@ else ()
 	)
 endif()
 
-install(TARGETS matrix RUNTIME DESTINATION bin)
+install(TARGETS graph_edit RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
