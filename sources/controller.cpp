@@ -30,6 +30,7 @@ void Controller::new_drawing()
 
 void Controller::open_drawing(const std::string& file_path)
 {
+	std::string m_file_path = file_path;
 	_model->new_drawing();
 	// read file
 	_model->notify();
@@ -37,7 +38,7 @@ void Controller::open_drawing(const std::string& file_path)
 
 void Controller::save_drawing(const std::string& file_path)
 {
-	// save file
+	std::string m_file_path = file_path;
 	_model->notify();
 }
 
