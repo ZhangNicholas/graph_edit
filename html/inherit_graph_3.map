@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d5/d3f/class_i_observable.html" title="Observables notify subscribed Observers about changes. " alt="" coords="5,5,103,32"/>
+<area shape="rect" id="node2" href="$d4/d8f/class_i_model.html" title="Model (drawing) contains graphic primitive objects and updates the view via Observer/ Observable patt..." alt="" coords="151,5,213,32"/>
+<area shape="rect" id="node3" href="$d0/de3/class_model.html" title="Model" alt="" coords="261,5,321,32"/>
+</map>

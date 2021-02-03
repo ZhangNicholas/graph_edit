@@ -1,0 +1,4 @@
+<map id="View" name="View">
+<area shape="rect" id="node2" href="$dc/d3e/class_i_view.html" title="View reprsents the model state via Observable/ Observer pattern. " alt="" coords="19,80,74,107"/>
+<area shape="rect" id="node3" href="$d8/d43/class_i_observer.html" title="Observers are notified about Observable objects updates they subscribed to. " alt="" coords="5,5,88,32"/>
+</map>
