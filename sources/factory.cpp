@@ -6,13 +6,13 @@
 std::unique_ptr<IGraphicPrimitive> Factory::add(const int&, const int&) const
 {
 	return nullptr;
-};
+}
 
 std::unique_ptr<IGraphicPrimitive> Factory::add(const int&, const int&,
 	const int&, const int&, const int&) const
 {
 	return nullptr;
-};
+}
 
 std::unique_ptr<IGraphicPrimitive> PointFactory::add(const int& x, const int& y) const {
 	return std::make_unique<Point>(x , y);
