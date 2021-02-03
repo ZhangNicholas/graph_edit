@@ -23,5 +23,6 @@ int GraphicPrimitive::get_y() {
 
 void GraphicPrimitive::set_radius(const int& radius) {
 	int m_radius = radius;
+	++m_radius;
 	m_radius = 0;
 }
